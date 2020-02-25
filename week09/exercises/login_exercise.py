@@ -2,8 +2,8 @@
 #	* Create a login application, that can store and handle multiple users.
 #	* The user should be asked if he wants to log in or create a login.
 #	* If 'create': The users credentials should be written to a file
-#	* If 'login': The users information should be checked agains the content of the file. 
-#	* The user should be granted or denied acces. 
+#	* If 'login': The users information should be checked against the content of the file. 
+#	* The user should be granted or denied access. 
 #
 # Go for the simplest, easiest, fastest approach!
 #
