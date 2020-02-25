@@ -20,27 +20,25 @@
 # instead of the actual count.
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
-def donuts(count):
-    output = 'Number of donuts: '
-    if count >= 10:
-        output += 'many' 
-    else:
-        output += str(count)
-    return output
 
+def donuts(count):
+  s = 'Number of donuts: '
+  if count > 9:
+    return s + 'many'
+  return s + str(count)
 
 # B. both_ends
 # Given a string s, return a string made of the first 2
 # and the last 2 chars of the original string,
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
+
 def both_ends(s):
-    output = ''
-    if len(s) < 2:
-        pass
-    else:
-        output = s[0:2] + s[-2:]
-    return output
+  if len(s) > 2:
+    start = s[:2] 
+    end = s[-2:]
+    return  start + end
+  return ''
 
 
 # C. fix_start
@@ -52,13 +50,11 @@ def both_ends(s):
 # Assume that the string is length 1 or more.
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
+
 def fix_start(s):
-  # get the first letter
-  firts = s[0]
-  # replace all occorences in the rest of the string
-  s = s.replace(firts, '*')
-  # reset first letter to original
-  s = firts + s[1:]
+  firstChar = s[0]
+  s = s.replace(firstChar, '*')
+  s = firstChar + s[1:]
   return s
 
 
@@ -69,48 +65,38 @@ def fix_start(s):
 #   'mix', pod' -> 'pox mid'
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
+
 def mix_up(a, b):
-  
-  # 1. solution
-  return f'{b[:2]}{a[2:]} {a[:2]}{b[2:]}'
-
-
-  # 2. solution
-  # get first 2 letters of a and b
-  afirst = a[:2]
-  bfirst = b[:2]
-  # get remains og a and b
-  alast = a[2:]
-  blast = b[2:]
-  # concatenate a and b
-  ab = f'{bfirst}{alast} {afirst}{blast}'
-  #return ab
-
-  # 3. solution
-  a_swapped = b[:2] + a[2:]
-  b_swapped = a[:2] + b[2:]
-  #return a_swapped + ' ' + b_swapped
-
+  a_swap = b[:2] + a[2:]
+  b_swap = a[:2] + b[2:]
+  return a_swap + " " + b_swap
+ 
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
+
 def test(got, expected):
   if got == expected:
     prefix = ' OK '
   else:
     prefix = '  X '
-  print (f'{prefix} got: {got} expected: {expected}')
+  print (f'{prefix} got: {got} , expected: {expected}')
 
 
 # Provided main() calls the above functions with interesting inputs,
 # using test() to check if each result is correct or not.
+
 def main():
+  print('----------------------------------------')
+  print('Exercise A: ')
   print ('donuts')
   # Each line calls donuts, compares its result to the expected for that call.
   test(donuts(4), 'Number of donuts: 4')
   test(donuts(9), 'Number of donuts: 9')
   test(donuts(10), 'Number of donuts: many')
   test(donuts(99), 'Number of donuts: many')
+  print('----------------------------------------')
+
 
   print()
   print ('both_ends')
@@ -133,5 +119,7 @@ def main():
   test(mix_up('dog', 'dinner'), 'dig donner')
   test(mix_up('gnash', 'sport'), 'spash gnort')
   test(mix_up('pezzy', 'firm'), 'fizzy perm')
+
+# Call the main function (execute the program)
 
 main()

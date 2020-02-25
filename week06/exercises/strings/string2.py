@@ -1,4 +1,3 @@
-
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -12,12 +11,17 @@
 # add 'ly' instead.
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
+
 def verbing(s):
-  if len(s) >= 3 and s[-3:] != 'ing':
-    s = s + 'ing'
-  elif len(s) >= 3:
+  if s.endswith('ing'):
     s = s + 'ly'
-  return  s
+    return s
+
+  if (len(s) >= 3):
+    s = s + 'ing'
+    return s
+  
+  return s
 
 
 # E. not_bad
@@ -28,6 +32,7 @@ def verbing(s):
 # Return the resulting string.
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
+
 def not_bad(s):
 
   # find not and bad
@@ -36,7 +41,7 @@ def not_bad(s):
   # check if not and bad in string and in the right order
   if n < b and n != -1:
     # slice the 'not' ... 'bad' string
-    substr = s[n : b+3]
+    substr = s[n : b + 3]
     # replace and return the new string
     return s.replace(substr, 'good', 1)
   
@@ -51,6 +56,7 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
+
 def front_back(a, b):
   a_mid = 0
   b_mid = 0
@@ -69,16 +75,18 @@ def front_back(a, b):
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
+
 def test(got, expected):
   if got == expected:
     prefix = ' OK '
   else:
     prefix = '  X '
-  print (prefix + ' got: ' + got + ' expected: ' + expected)
+  print (f'{prefix} got: {got} expected: {expected}')
 
 
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.
+
 def main():
   print ('verbing')
   test(verbing('hail'), 'hailing')
@@ -98,4 +106,5 @@ def main():
   test(front_back('abcde', 'xyz'), 'abcxydez')
   test(front_back('Kitten', 'Donut'), 'KitDontenut')
 
+# Call main function (run the program)
 main()
