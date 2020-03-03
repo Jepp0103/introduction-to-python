@@ -31,12 +31,13 @@ def main():
             else:
                 addTeil((i, n), "not clean")
                 n += 1
+
+    addTeil((50,2),"ugly") #trying to specify another cleanliness which will return "not defined".
     print(teils)
     print("-----------------------------------------------")
     print("Number of teils:", len(teils))
     print("Is teil (29, 18) clean?", isClean((29,18)))
     print("Is teil (28, 9) clean?", isClean((28, 9)))
-    addTeil((50,2),"ugly") #trying to specify another cleanliness which will return "not defined".
     print("Is teil (50,2) clean?", isClean((50,2)))
     print("-----------------------------------------------")
     print("-----------------------------------------------")

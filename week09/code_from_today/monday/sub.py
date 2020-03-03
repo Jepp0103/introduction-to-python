@@ -15,4 +15,3 @@ subprocess.run(['sudo', 'rm', '-r', 'ooo'])
 
 
 
-

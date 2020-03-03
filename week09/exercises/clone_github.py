@@ -10,13 +10,17 @@
     Clone all repos from this users account. 
 
     3. If you did not already modualize your application do it now. 
-
-
 """
 
 import os
 import subprocess
 
-
+#1 
+os.mkdir('clone_all_repos')
+os.chdir('clone_all_repos')
+repos = []
+for repo in repos:
+    
+    subprocess.run(['git', 'clone', ''])
 
 
