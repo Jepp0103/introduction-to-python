@@ -119,6 +119,32 @@ def find_numbers_divisible_by_digit():
 
 
 # 9. Multiples of 3 and 5: If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.
+@timer
+def multiples_of_3_or_5(n):
+    sum = 0    
+    for number in range(n):
+        if not number % 3 or not number % 5:
+            sum += number
+    return sum
+
+@timer
+def multiples_of_3_or_5_comp(n):
+    return sum([i for i in range(n) if not i % 3 or not i % 5])
+
+@timer
+def multiples_of_3_or_5_gen(n):
+        for number in range(n):
+            if not number % 3 or not number % 5:
+                yield number
+
+x = sum(multiples_of_3_or_5_gen(1000))
+
+
+
+
+
+
+
 def main():
     print("--------------------------")
     print("1. - Divisible by 7 - loop:")

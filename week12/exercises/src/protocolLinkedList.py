@@ -5,7 +5,7 @@ class Node:
 
 class LinkedList:
     def __init__(self):
-            self.head = None
+        self.head = None
 
     def __len__(self):
         return len(self.head)
